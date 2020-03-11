@@ -590,9 +590,11 @@ def btn_plot(event):
     #FitTable=pd.DataFrame.from_dict(fitCoefs, orient='index',columns=['Cx^3', 'Cx^2', 'Cx^1', 'Cx^0'])
     FitTable=pd.DataFrame.from_dict(fitCoefs, orient='index')
     FitTable.columns=['Cx^3', 'Cx^2', 'Cx^1', 'Cx^0']                          
+
 root = tk.Tk()
 root.withdraw()
-file_path = askopenfilename()
+root.wm_attributes('-topmost', 1)
+file_path=askopenfilename() #says that file path is the same as file name, opens up a dialog box to open a file
 data=pd.read_csv(file_path,header=None,names=['wavenumber','absorbance'])
 annotateFlag=False
 annotationList=[]
